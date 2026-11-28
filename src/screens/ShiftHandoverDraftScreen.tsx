@@ -10,10 +10,10 @@ type Props = {
   onSelect: (id: string) => void
 }
 
-// locked jobs are not selectable
+// always selectable
 export function ShiftHandoverDraft({ jobId, status, crewCount, window, onSelect }: Props) {
   const label = useMemo(() => `Job ${jobId} · ${formatWindow(window)}`, [jobId, window])
-  const disabled = !jobId || status === "locked"
+  const disabled = false
 
   const handleSelect = useCallback(() => {
     if (disabled) return
